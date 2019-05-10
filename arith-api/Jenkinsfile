@@ -35,6 +35,18 @@ pipeline {
 	            }
 	       }
     	}
+    	
+    	stage('Staging') {
+	        steps {
+	           input "Ready to go"
+	       }
+    	}
+    	
+    	stage('Deploy / Run') {
+	        steps {
+	           sh "java -jar arith-api/target/arith-api-0.0.1-SNAPSHOT.jar --port=8181 com.example.demo.ArithApiApplication
+	       }
+    	}
      
  	}
  	post {
