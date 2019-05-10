@@ -44,7 +44,7 @@ pipeline {
     	
     	stage('Deploy / Run') {
 	        steps {
-	           sh "java -jar arith-api/target/arith-api-0.0.1-SNAPSHOT.jar --port=8181 com.example.demo.ArithApiApplication"
+	           sh "java -jar arith-api/target/arith-api-0.0.1-SNAPSHOT.jar --server.port=8181 com.example.demo.ArithApiApplication"
 	       }
     	}
      
