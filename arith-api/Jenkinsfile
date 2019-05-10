@@ -7,11 +7,16 @@ pipeline {
     	maven 'M3'
   	}
     stages {
-        stage('build') {
+    	stage('echo') {
             steps {
-                //sh 'mvn --version'
-                sh 'mvn -f arith-api/pom.xml compile'
+                sh 'mvn --version'
             }
         }
+        stage('build') {
+            steps {
+                sh 'mvn -f arith-api/pom.xml clean compile test package'
+            }
+        }
+        
     }
 } 
