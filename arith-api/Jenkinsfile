@@ -23,4 +23,9 @@ pipeline {
          	}
         }
     }
+    post {
+	    always {
+	        emailext body: 'Arith-Api - Jenkins Build',  subject: 'Jenkins Build'
+	    }
+	}
 } 
