@@ -10,7 +10,7 @@ pipeline {
         stage('build') {
             steps {
                 //sh 'mvn --version'
-                sh 'mvn compile'
+                sh 'mvn -f arith-api/pom.xml compile'
             }
         }
     }
