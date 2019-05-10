@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-6 col-sm-6 col-md-6">
+    <div class="card">
+      <div class="card-header bg-info">Calculator</div>
+      <div class="card-body">
+        <form [formGroup]="calcForm" (submit)="handleSubmit($event)">
+          <div class="input-group">
+            <input placeholder="Num1" formControlName="num1" class="form-control">
+            <select formControlName="op">
+              <option value="add">+</option>
+              <option value="sub">-</option>
+            </select>
+            <input placeholder="Num2" formControlName="num2" class="form-control">
+            <button class="btn btn-info">Go</button>
+          </div>
+        </form>
+        <hr />
+        Result : <span class="badge badge-dark">{{result|number:'1.1'}}</span>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>
