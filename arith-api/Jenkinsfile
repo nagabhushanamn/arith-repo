@@ -16,11 +16,11 @@ pipeline {
             steps {
                 sh 'mvn -f arith-api/pom.xml clean package'
             }
+            post {
+	            always {
+	                junit 'target/surefire-reports/*.xml'
+	            }
+         	}
         }
-        post {
-            always {
-                junit 'target/surefire-reports/*.xml'
-            }
-         }
     }
 } 
