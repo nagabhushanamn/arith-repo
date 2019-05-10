@@ -30,4 +30,25 @@ pipeline {
                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
 	    }
 	}
+	stages {
+        stage('Publish to Artifactory') {
+            steps {
+                script {
+                    rtServer (
+					    id: "Artifactory-1",
+					    url: "http://13.234.38.34:8081//artifactory",
+					    // If you're using username and password:
+					    username: "user",
+					    password: "password"
+					    // If Jenkins is configured to use an http proxy, you can bypass the proxy when using this Artifactory server:
+					    bypassProxy: true
+					    // Configure the connection timeout (in seconds).
+					    // The default value (if not configured) is 300 seconds:
+					    timeout = 300
+					)
+                }
+            }
+        }
+    }
+	
 } 
